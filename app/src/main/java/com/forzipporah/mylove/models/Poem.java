@@ -5,6 +5,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.forzipporah.mylove.database.contracts.PoemContract;
+import com.forzipporah.mylove.helpers.http.JSONParse;
+
+import java.util.ArrayList;
 
 
 public class Poem implements Parcelable {
@@ -58,6 +61,15 @@ public class Poem implements Parcelable {
         date = in.readString();
         author = in.readString();
         serverId = in.readString();
+    }
+
+    public static ContentValues[] createContentValuesArrayFromJSON(String json) {
+        ArrayList<Poem> poems  = JSONParse.parseJSONToPoems(json);
+        ContentValues[] values = new ContentValues[poems.size()];
+        for (int i = 0; i < poems.size(); i++) {
+            values[i] = poems.get(i).createContentValues();
+        }
+        return values;
     }
 
     @Override
