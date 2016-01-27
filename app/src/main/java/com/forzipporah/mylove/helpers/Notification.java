@@ -57,7 +57,7 @@ public class Notification {
         mBuilder.setSmallIcon(android.R.drawable.stat_notify_sync);
         mBuilder.setContentTitle("My Love");
         mBuilder.setContentIntent(pendingIntent);
-        mBuilder.setContentText("New Poems Available!");
+        mBuilder.setContentText("New Content Available!");
         mBuilder.setAutoCancel(true);
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
