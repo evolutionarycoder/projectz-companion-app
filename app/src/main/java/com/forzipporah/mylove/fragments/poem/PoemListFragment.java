@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.Toast;
 
 import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.adapters.PoemCursorAdapter;
@@ -71,7 +70,6 @@ public class PoemListFragment extends PoemFragment implements LoaderManager.Load
         int lastItem = firstVisibleItem + visibleItemCount;
         if (lastItem == totalItemCount) {
             if (preLast != lastItem) { //to avoid multiple calls for last item
-                Toast.makeText(getContext(), "Loading", Toast.LENGTH_SHORT).show();
                 LIMIT += INCREMENT_BY;
                 getLoaderManager().restartLoader(FETCH_ALL_POEMS_LOADER, null, this);
                 preLast = lastItem;
