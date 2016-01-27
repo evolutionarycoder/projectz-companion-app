@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">My Love</string>
 
+    <!-- Activity Titles -->
+    <string name="title_activity_ilove">I Love</string>
+
     <!--  Main Activity -->
     <string name="quote">And in her smile I see something more beautiful than the stars.</string>
 
