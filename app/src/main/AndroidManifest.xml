@@ -95,6 +95,14 @@
                 android:resource="@xml/authenticator"/>
         </service>
 
+        <activity
+            android:name=".ui.ILoveActivity"
+            android:label="@string/title_activity_ilove"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.forzipporah.mylove.ui.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
