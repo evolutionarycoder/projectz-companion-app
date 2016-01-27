@@ -1,7 +1,6 @@
 package com.forzipporah.mylove.helpers.http;
 
-import android.content.ContentValues;
-
+import com.forzipporah.mylove.models.ILove;
 import com.forzipporah.mylove.models.Poem;
 
 import org.json.JSONArray;
@@ -34,11 +33,25 @@ public class JSONParse {
         return poems;
     }
 
-    public static ContentValues[] createContentValuesArrayFromPoemsList(ArrayList<Poem> poems) {
-        ContentValues[] values = new ContentValues[poems.size()];
-        for (int i = 0; i < poems.size(); i++) {
-            values[i] = poems.get(i).createContentValues();
+    public static ArrayList<ILove> parseJSONToILoves(String jsonString) {
+        ArrayList<ILove> iLoves = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(jsonString);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+
+                String serverId = json.getString("id");
+                String love = json.getString("love");
+                ILove ilove = new ILove(serverId, love);
+
+                iLoves.add(ilove);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        return values;
+        return iLoves;
     }
+
 }
