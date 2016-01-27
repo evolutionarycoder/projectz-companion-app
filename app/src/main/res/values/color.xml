@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dark_purple_bg">#6a1b9a</color>
+    <color name="medium_purple_bg">#9C27B0</color>
+    <color name="light_purple_bg">#AB47BC</color>
+
+    <color name="base_pink">#F06292</color>
+    <color name="base_purple">#7B1FA2</color>
+</resources>

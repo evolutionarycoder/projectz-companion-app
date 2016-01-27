@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Love</string>
+
+    <!--  Main Activity -->
+    <string name="quote">And in her smile I see something more beautiful than the stars.</string>
+
+    <!-- Navigation Drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
+    <!--  Menu Items -->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_setting_up">SettingUpActivity</string>
+    <string name="action_favourite">Favourite</string>
+
+
+    <!--  Dummy Text For PoemViewActivity -->
+    <string name="date_label">Date:</string>
+    <string name="name_label">Name:</string>
+    <string name="author_text">Author:</string>
+
+    <string name="dummy_date">17 Dec 2015</string>
+    <string name="dummy_name_text">Daniel Prince</string>
+    <string name="dummy_poem_text">This is the poem name…</string>
+    <string name="dummy_long_text">I love you</string>
+</resources>

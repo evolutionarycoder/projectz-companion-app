@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.forzipporah.mylove.ui.PoemActivity">
+
+
+    <item
+        android:id="@+id/action_favourite"
+        android:icon="@drawable/unfav"
+        android:orderInCategory="99"
+        android:title="@string/action_favourite"
+        app:showAsAction="always"/>
+
+</menu>
