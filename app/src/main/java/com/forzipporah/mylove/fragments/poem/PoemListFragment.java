@@ -24,7 +24,7 @@ public class PoemListFragment extends PoemFragment implements LoaderManager.Load
     private static       int LIMIT                  = 10;
     private static       int INCREMENT_BY           = 10;
     private int preLast;
-    ;
+
 
     public PoemListFragment() {
         // Required empty public constructor
