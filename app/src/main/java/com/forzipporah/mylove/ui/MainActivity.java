@@ -1,5 +1,6 @@
 package com.forzipporah.mylove.ui;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
@@ -76,7 +77,12 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                switch (position) {
+                    case 0:
+                        Intent i = new Intent(MainActivity.this, ILoveActivity.class);
+                        startActivity(i);
+                        break;
+                }
             }
         });
     }
