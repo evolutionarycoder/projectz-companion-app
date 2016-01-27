@@ -4,6 +4,9 @@ package com.forzipporah.mylove.models;
 import android.content.ContentValues;
 
 import com.forzipporah.mylove.database.contracts.ILoveContract;
+import com.forzipporah.mylove.helpers.http.JSONParse;
+
+import java.util.ArrayList;
 
 public class ILove {
     private long   id;
@@ -23,6 +26,15 @@ public class ILove {
         this.id = id;
         this.serverId = serverId;
         this.ilove = ilove;
+    }
+
+    public static ContentValues[] createContentValuesArrayFromJSON(String json) {
+        ArrayList<ILove> iLoves = JSONParse.parseJSONToILoves(json);
+        ContentValues[]  values = new ContentValues[iLoves.size()];
+        for (int i = 0; i < iLoves.size(); i++) {
+            values[i] = iLoves.get(i).createContentValues();
+        }
+        return values;
     }
 
     public ContentValues createContentValues() {
