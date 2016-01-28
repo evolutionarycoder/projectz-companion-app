@@ -1,4 +1,4 @@
-package com.forzipporah.mylove.ui;
+package com.forzipporah.mylove.fragments;
 
 import android.app.Fragment;
 import android.app.LoaderManager;
