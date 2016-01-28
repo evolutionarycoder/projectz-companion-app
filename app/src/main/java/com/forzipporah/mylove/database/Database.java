@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.forzipporah.mylove.database.contracts.ILoveContract;
 import com.forzipporah.mylove.database.contracts.PoemContract;
+import com.forzipporah.mylove.database.contracts.PositiveLogContract;
 
 /**
  * Created by prince on 1/24/16.
@@ -22,11 +23,13 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(PoemContract.CREATE_POEM_TABLE);
         db.execSQL(ILoveContract.CREATE_LOVE_ABOUT_TABLE);
+        db.execSQL(PositiveLogContract.CREATE_POSITIVE_LOG_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(PoemContract.DROP_POEM_TABLE);
         db.execSQL(ILoveContract.DROP_LOVE_ABOUT_TABLE);
+        db.execSQL(PositiveLogContract.DROP_TABLE_POSITIVE_LOG);
     }
 }

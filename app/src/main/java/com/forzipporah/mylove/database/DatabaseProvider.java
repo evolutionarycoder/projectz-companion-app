@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 
 import com.forzipporah.mylove.database.contracts.ILoveContract;
 import com.forzipporah.mylove.database.contracts.PoemContract;
+import com.forzipporah.mylove.database.contracts.PositiveLogContract;
 
 
 public class DatabaseProvider extends ContentProvider {
@@ -18,12 +19,17 @@ public class DatabaseProvider extends ContentProvider {
     private static final String     AUTHORITY    = "com.forzipporah.mylove.database.DatabaseProvider";
     private static final String     BASE_PATH    = "table";
     public static final  Uri        CONTENT_URI  = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
+
     // recognized URI's
     // all poems
-    private static final int        POEMS        = 100;
-    private static final int        POEM_ID      = 101;
-    private static final int        LOVEABOUTS   = 201;
-    private static final int        LOVEABOUT_ID = 202;
+    private static final int POEMS   = 100;
+    private static final int POEM_ID = 101;
+
+    private static final int LOVEABOUTS   = 201;
+    private static final int LOVEABOUT_ID = 202;
+
+    private static final int POSITIVELOGS   = 301;
+    private static final int POSITIVELOG_ID = 302;
 
     static {
         // for poems table
@@ -33,6 +39,9 @@ public class DatabaseProvider extends ContentProvider {
         // for I love about table
         sURI_MATCHER.addURI(AUTHORITY, BASE_PATH + "/" + ILoveContract.BASE_PATH, LOVEABOUTS);
         sURI_MATCHER.addURI(AUTHORITY, BASE_PATH + "/" + ILoveContract.BASE_PATH + "/#", LOVEABOUT_ID);
+
+        sURI_MATCHER.addURI(AUTHORITY, BASE_PATH + "/" + PositiveLogContract.BASE_PATH, POSITIVELOGS);
+        sURI_MATCHER.addURI(AUTHORITY, BASE_PATH + "/" + PositiveLogContract.BASE_PATH + "/#", POSITIVELOG_ID);
     }
 
     private Database mDatabase;
@@ -90,6 +99,27 @@ public class DatabaseProvider extends ContentProvider {
                         null);
                 break;
 
+            case POSITIVELOGS:
+                c = database.query(PositiveLogContract.TABLE_NAME,
+                        PositiveLogContract.ALL_COLUMNS,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
+
+            case POSITIVELOG_ID:
+                c = database.query(PositiveLogContract.TABLE_NAME,
+                        PositiveLogContract.ALL_COLUMNS,
+                        PositiveLogContract._ID + " = ?",
+                        selectionArgs,
+                        null,
+                        null,
+                        null);
+                break;
+
+
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }
@@ -119,6 +149,9 @@ public class DatabaseProvider extends ContentProvider {
             case LOVEABOUTS:
                 id = database.insertOrThrow(ILoveContract.TABLE_NAME, null, values);
                 break;
+            case POSITIVELOGS:
+                id = database.insertOrThrow(PositiveLogContract.TABLE_NAME, null, values);
+                break;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -140,6 +173,11 @@ public class DatabaseProvider extends ContentProvider {
             case LOVEABOUT_ID:
                 affected = database.delete(ILoveContract.TABLE_NAME,
                         ILoveContract._ID + " = ?",
+                        selectionArgs);
+                break;
+            case POSITIVELOG_ID:
+                affected = database.delete(PositiveLogContract.TABLE_NAME,
+                        PositiveLogContract._ID + " = ?",
                         selectionArgs);
                 break;
 
@@ -169,6 +207,15 @@ public class DatabaseProvider extends ContentProvider {
                         ILoveContract.TABLE_NAME,
                         values,
                         ILoveContract._ID + " = ?",
+                        selectionArgs
+                );
+                break;
+
+            case POSITIVELOG_ID:
+                affected = database.update(
+                        PositiveLogContract.TABLE_NAME,
+                        values,
+                        PositiveLogContract._ID + " = ?",
                         selectionArgs
                 );
                 break;
