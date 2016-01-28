@@ -3,6 +3,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="#ba68c8"
@@ -20,9 +21,9 @@
         android:paddingStart="5dp"
         android:shadowColor="#ffffff"
         android:shadowRadius="10"
-        android:text="Poem Goes Here..."
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white"
+        tools:text="Poem Goes Here..."
         />
 
 </LinearLayout>
