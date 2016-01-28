@@ -61,7 +61,6 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         if (validateResponse(poemResponse)) {
             ContentValues[] values = Poem.createContentValuesArrayFromJSON(poemResponse);
             getContext().getContentResolver().bulkInsert(PoemContract.buildUri(), values);
-            Notification.showSyncNotification(getContext());
         }
 
         if (dataRetrieved) {
