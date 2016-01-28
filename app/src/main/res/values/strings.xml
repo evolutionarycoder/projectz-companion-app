@@ -5,6 +5,8 @@
     <!-- Activity Titles -->
     <string name="title_activity_ilove">I Love</string>
     <string name="title_activity_positive_log">Positive Log</string>
+    <string name="title_activity_positive_log_upsert">View</string>
+    <string name="title_activity_setting_up">Setting Up</string>
 
     <!--  Main Activity -->
     <string name="quote">And in her smile I see something more beautiful than the stars.</string>
@@ -16,9 +18,12 @@
 
     <!--  Menu Items -->
     <string name="action_settings">Settings</string>
-    <string name="title_activity_setting_up">SettingUpActivity</string>
     <string name="action_favourite">Favourite</string>
     <string name="action_create">Create</string>
+    <string name="action_update">Update</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_save">Save</string>
 
 
     <!--  Dummy Text For PoemViewActivity -->
@@ -30,5 +35,6 @@
     <string name="dummy_name_text">Daniel Prince</string>
     <string name="dummy_poem_text">This is the poem name…</string>
     <string name="dummy_long_text">I love you</string>
+
 
 </resources>
