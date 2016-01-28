@@ -153,16 +153,19 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
-                "A Memory",
-                "Quizzes",
-                "Love Meter",
-                "Reassurance",
-                "I Promise",
-                "Photo Gallery",
-                "Why I Love You",
-                "Ask A Question",
-                "Settings",
+                "Positive Log"
         };
+         /*
+            "A Memory",
+            "Quizzes",
+            "Love Meter",
+            "Reassurance",
+            "I Promise",
+            "Photo Gallery",
+            "Why I Love You",
+            "Ask A Question",
+            "Settings",
+        */
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, menuItems);
         mDrawerList.setAdapter(adapter);
     }
