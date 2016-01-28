@@ -4,6 +4,7 @@
 
     <!-- Activity Titles -->
     <string name="title_activity_ilove">I Love</string>
+    <string name="title_activity_positive_log">Positive Log</string>
 
     <!--  Main Activity -->
     <string name="quote">And in her smile I see something more beautiful than the stars.</string>

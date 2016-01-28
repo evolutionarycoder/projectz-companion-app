@@ -103,6 +103,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.forzipporah.mylove.ui.MainActivity"/>
         </activity>
+        <activity
+            android:name=".ui.PositiveLogActivity"
+            android:label="@string/title_activity_positive_log"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.forzipporah.mylove.ui.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

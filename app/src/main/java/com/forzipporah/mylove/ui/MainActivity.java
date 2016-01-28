@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
-                "Positive Log"
+//                "Positive Log"
         };
          /*
             "A Memory",
