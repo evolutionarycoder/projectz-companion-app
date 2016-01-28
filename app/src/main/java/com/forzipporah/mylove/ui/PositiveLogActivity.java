@@ -7,8 +7,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.forzipporah.mylove.R;
+import com.forzipporah.mylove.database.DatabaseAsyncOperation;
+import com.forzipporah.mylove.database.contracts.PositiveLogContract;
+import com.forzipporah.mylove.models.PositiveLog;
 
-public class PositiveLogActivity extends AppCompatActivity {
+public class PositiveLogActivity extends AppCompatActivity implements DatabaseAsyncOperation.OperationComplete {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,17 @@ public class PositiveLogActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.action_create:
+                PositiveLog positiveLog = new PositiveLog("life");
+                DatabaseAsyncOperation db = new DatabaseAsyncOperation(getContentResolver(), this);
+                db.startInsert(DatabaseAsyncOperation.INSERT_CODE, null, PositiveLogContract.buildUri(), positiveLog.createContentValues());
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void completed(Object... objects) {
+
     }
 }
