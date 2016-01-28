@@ -2,13 +2,26 @@ package com.forzipporah.mylove.models;
 
 
 import android.content.ContentValues;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.forzipporah.mylove.database.contracts.PositiveLogContract;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PositiveLog {
+public class PositiveLog implements Parcelable {
+    public static final Creator<PositiveLog> CREATOR = new Creator<PositiveLog>() {
+        @Override
+        public PositiveLog createFromParcel(Parcel in) {
+            return new PositiveLog(in);
+        }
+
+        @Override
+        public PositiveLog[] newArray(int size) {
+            return new PositiveLog[size];
+        }
+    };
     private long   mId;
     private String mPositiveFor;
     private String mDate;
@@ -24,6 +37,12 @@ public class PositiveLog {
         this.mId = id;
         this.mPositiveFor = positiveFor;
         this.mDate = date;
+    }
+
+    protected PositiveLog(Parcel in) {
+        mId = in.readLong();
+        mPositiveFor = in.readString();
+        mDate = in.readString();
     }
 
     public long getId() {
@@ -55,5 +74,17 @@ public class PositiveLog {
         values.put(PositiveLogContract.COL_POSITIVE_FOR, mPositiveFor);
         values.put(PositiveLogContract.COL_DATE, mDate);
         return values;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mId);
+        dest.writeString(mPositiveFor);
+        dest.writeString(mDate);
     }
 }
