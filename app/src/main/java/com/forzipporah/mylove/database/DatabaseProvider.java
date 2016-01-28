@@ -19,15 +19,12 @@ public class DatabaseProvider extends ContentProvider {
     private static final String     AUTHORITY    = "com.forzipporah.mylove.database.DatabaseProvider";
     private static final String     BASE_PATH    = "table";
     public static final  Uri        CONTENT_URI  = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
-
     // recognized URI's
     // all poems
     private static final int POEMS   = 100;
     private static final int POEM_ID = 101;
-
     private static final int LOVEABOUTS   = 201;
     private static final int LOVEABOUT_ID = 202;
-
     private static final int POSITIVELOGS   = 301;
     private static final int POSITIVELOG_ID = 302;
 
@@ -44,19 +41,19 @@ public class DatabaseProvider extends ContentProvider {
         sURI_MATCHER.addURI(AUTHORITY, BASE_PATH + "/" + PositiveLogContract.BASE_PATH + "/#", POSITIVELOG_ID);
     }
 
-    private Database mDatabase;
+    private SQLiteDatabase database;
 
     @Override
     public boolean onCreate() {
-        mDatabase = new Database(getContext());
+        Database Database = new Database(getContext());
+        database = Database.getReadableDatabase();
         return true;
     }
 
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        Cursor         c        = null;
-        SQLiteDatabase database = mDatabase.getReadableDatabase();
+        Cursor c = null;
         // match URI's and return proper data
         switch (sURI_MATCHER.match(uri)) {
             case POEMS:
@@ -139,7 +136,6 @@ public class DatabaseProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        SQLiteDatabase database = mDatabase.getWritableDatabase();
         Uri            insertUri;
         long           id;
         switch (sURI_MATCHER.match(uri)) {
@@ -162,7 +158,6 @@ public class DatabaseProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        SQLiteDatabase database = mDatabase.getWritableDatabase();
         int            affected = 0;
         switch (sURI_MATCHER.match(uri)) {
             case POEM_ID:
@@ -191,7 +186,6 @@ public class DatabaseProvider extends ContentProvider {
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        SQLiteDatabase database = mDatabase.getWritableDatabase();
         int            affected = 0;
         switch (sURI_MATCHER.match(uri)) {
             case POEM_ID:
