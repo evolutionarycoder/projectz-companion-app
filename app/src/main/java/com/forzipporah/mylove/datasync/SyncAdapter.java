@@ -39,13 +39,16 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient provider, SyncResult syncResult) {
+        // define request objects with there destination to retrieve data
         HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem", "poem.php", "fetch");
         HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove", "ilove.php", "fetch");
 
 
+        // define strings to hold received data
         String poemResponse  = null;
         String iloveResponse = null;
         try {
+            // fetch data from server
             poemResponse = httpRequestPoems.connect();
             iloveResponse = httpRequestLoveAbouts.connect();
         } catch (IOException e) {
@@ -53,21 +56,25 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         }
 
 
+        // Data for stuff I love
         if (validateResponse(iloveResponse)) {
             ContentValues[] values = ILove.createContentValuesArrayFromJSON(iloveResponse);
             getContext().getContentResolver().bulkInsert(ILoveContract.buildUri(), values);
         }
 
+        // Data for poems
         if (validateResponse(poemResponse)) {
             ContentValues[] values = Poem.createContentValuesArrayFromJSON(poemResponse);
             getContext().getContentResolver().bulkInsert(PoemContract.buildUri(), values);
         }
 
+        // if data is received show notification
         if (dataRetrieved) {
             Notification.showSyncNotification(getContext());
         }
     }
 
+    // validate response from servers
     private boolean validateResponse(String response) {
         if (response != null && response.length() != 0) {
             dataRetrieved = true;
