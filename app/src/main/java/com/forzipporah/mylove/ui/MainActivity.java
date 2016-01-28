@@ -77,11 +77,17 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = null;
                 switch (position) {
                     case 0:
-                        Intent i = new Intent(MainActivity.this, ILoveActivity.class);
-                        startActivity(i);
+                        i = new Intent(MainActivity.this, ILoveActivity.class);
                         break;
+                    case 1:
+                        i = new Intent(MainActivity.this, PositiveLogActivity.class);
+                        break;
+                }
+                if (i != null) {
+                    startActivity(i);
                 }
             }
         });
@@ -153,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
-//                "Positive Log"
+                "Positive Log"
         };
          /*
             "A Memory",
