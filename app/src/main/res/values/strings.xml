@@ -11,6 +11,8 @@
     <!--  Main Activity -->
     <string name="quote">And in her smile I see something more beautiful than the stars.</string>
 
+    <!-- Positive Log Activity -->
+    <string name="thankful_for">I\'M THANKFUL FOR</string>
     <!-- Navigation Drawer -->
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>

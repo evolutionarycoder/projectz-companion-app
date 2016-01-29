@@ -12,7 +12,7 @@
         android:layout_height="50dp"
         android:background="@color/base_purple"
         android:gravity="center_vertical|center_horizontal"
-        android:text="I&apos;m thankful for"
+        android:text="@string/thankful_for"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <EditText
