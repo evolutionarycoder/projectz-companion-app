@@ -110,17 +110,20 @@ public class PositiveLogEditFragment extends Fragment implements DatabaseAsyncOp
         return super.onOptionsItemSelected(item);
     }
 
+    private void notifyAndFinish(String text){
+        Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
+        getActivity().finish();
+    }
+
     @Override
     public void completed(Object... objects) {
         int token = (int) objects[0];
         switch (token) {
             case DatabaseAsyncOperation.INSERT_CODE:
-                Toast.makeText(getContext(), "Created", Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                notifyAndFinish("Created");
                 break;
             case DatabaseAsyncOperation.UPDATE_CODE:
-                Toast.makeText(getContext(), "Updated", Toast.LENGTH_SHORT).show();
-                getActivity().finish();
+                notifyAndFinish("Updated");
                 break;
         }
     }

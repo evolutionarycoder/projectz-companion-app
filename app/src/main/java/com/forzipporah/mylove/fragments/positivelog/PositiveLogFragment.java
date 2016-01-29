@@ -1,7 +1,9 @@
 package com.forzipporah.mylove.fragments.positivelog;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
@@ -102,7 +104,7 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
                 return true;
 
             case R.id.delete_positive_log_context:
-                deletePositiveLog(itemSelected.id);
+                confirmDelete(itemSelected.id);
                 return true;
 
             default:
@@ -126,6 +128,21 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
                 new String[]{
                         id + ""
                 });
+    }
+
+    private void confirmDelete(final long id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Are you sure?");
+        builder.setMessage("Are you sure you want to delete this?");
+        builder.setNegativeButton("CANCEL", null);
+        builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deletePositiveLog(id);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override
@@ -153,7 +170,6 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        mActivity.fetchPositiveLogs();
         return new CursorLoader(getContext(), PositiveLogContract.buildUri(),
                 null,
                 null,
@@ -163,6 +179,7 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        mActivity.fetchPositiveLogs();
         mCursorAdapter.swapCursor(data);
     }
 
@@ -188,7 +205,6 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
                 Toast.makeText(getContext(), "Deleted", Toast.LENGTH_SHORT).show();
                 break;
         }
-
     }
 
     public interface FetchTotalPositiveLogs {
