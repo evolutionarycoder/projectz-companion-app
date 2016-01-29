@@ -39,10 +39,10 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
     private final int INCREMENT_BY                  = 10;
     private final int FETCH_POSITIVE_LOGS_LOADER_ID = 0;
     public        int LIMIT                         = 10;
-    FetchTotalPositiveLogs mActivity;
-    private int preLast;
-    private ListView      positiveListView;
-    private CursorAdapter mCursorAdapter;
+
+    private FetchTotalPositiveLogs mActivity;
+    private int                    preLast;
+    private CursorAdapter          mCursorAdapter;
 
     public PositiveLogFragment() {
         // Required empty public constructor
@@ -70,7 +70,7 @@ public class PositiveLogFragment extends Fragment implements LoaderManager.Loade
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        positiveListView = (ListView) view.findViewById(R.id.positiveListView);
+        ListView positiveListView = (ListView) view.findViewById(R.id.positiveListView);
         mCursorAdapter = new SimpleCursorAdapter(getContext(),
                 R.layout.positive_item,
                 null,
