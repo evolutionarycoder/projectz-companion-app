@@ -1,0 +1,82 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_pink"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/medium_purple_bg"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="Together For"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:id="@+id/togetherForTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_purple_bg"
+            android:gravity="center_vertical|center_horizontal"
+            android:minHeight="40dp"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/medium_purple_bg"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="Am I Still In Love With You"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_purple_bg"
+            android:gravity="center_vertical|center_horizontal"
+            android:minHeight="40dp"
+            android:text="YES!"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/medium_purple_bg"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="How Long I want with you"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_purple_bg"
+            android:gravity="center_vertical|center_horizontal"
+            android:minHeight="40dp"
+            android:text="Until a minute after never reaches"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+    </LinearLayout>
+</LinearLayout>
