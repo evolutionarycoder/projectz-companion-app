@@ -34,7 +34,7 @@ public class StatusActivity extends AppCompatActivity {
 
 
     public String printDifference(Date startDate, Date endDate) {
-        Period period = new Period(startDate.getTime(), endDate.getTime(), PeriodType.yearMonthDay());
+        Period period = new Period(startDate.getTime(), endDate.getTime(), PeriodType.yearMonthDayTime());
 
         return period.getYears() + " years  " + period.getMonths() + " months " + period.getDays() + " days " + period.getHours() + " hours ";
     }
