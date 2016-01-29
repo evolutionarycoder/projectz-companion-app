@@ -85,6 +85,9 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
                     case 1:
                         i = new Intent(MainActivity.this, PositiveLogActivity.class);
                         break;
+                    case 2:
+                        i = new Intent(MainActivity.this, StatusActivity.class);
+                        break;
                 }
                 if (i != null) {
                     startActivity(i);
@@ -159,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
-                "Positive Log"
+                "Positive Log",
+                "Relationship Status"
         };
          /*
             "A Memory",
