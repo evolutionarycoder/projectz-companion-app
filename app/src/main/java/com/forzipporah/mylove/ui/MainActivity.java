@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
         };
     }
 
-    // add items to the navgation drawer
+    // add items to the navigation drawer
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
