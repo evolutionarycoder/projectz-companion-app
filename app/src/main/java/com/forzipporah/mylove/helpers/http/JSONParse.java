@@ -44,7 +44,6 @@ public class JSONParse {
                 String serverId = json.getString("id");
                 String love = json.getString("love");
                 ILove ilove = new ILove(serverId, love);
-
                 iLoves.add(ilove);
             }
 

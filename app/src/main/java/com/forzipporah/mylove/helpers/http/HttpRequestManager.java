@@ -21,7 +21,7 @@ public class HttpRequestManager {
         mRequestType = "GET";
         mBuilder.scheme(Http.SCHEME)
                 .authority(Http.DOMAIN)
-                .appendPath("versatile")
+                .appendPath("web")
                 .appendPath("projectz")
                 .appendPath("cms")
                 .appendPath("Backend")
@@ -37,6 +37,8 @@ public class HttpRequestManager {
         HttpURLConnection connection = (HttpURLConnection) syncUrl.openConnection();
         connection.setRequestMethod(mRequestType);
         connection.setInstanceFollowRedirects(true);
+        connection.setDefaultUseCaches(false);
+        connection.setUseCaches(false);
         HttpURLConnection.setFollowRedirects(true);
         connection.connect();
 

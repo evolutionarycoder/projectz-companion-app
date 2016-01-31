@@ -25,7 +25,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     // Define a variable to contain a content resolver instance
     ContentResolver mContentResolver;
-    private boolean dataRetrieved = false;
+    private boolean dataRetrieved;
 
     public SyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -39,6 +39,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient provider, SyncResult syncResult) {
+        dataRetrieved = false;
+
         // define request objects with there destination to retrieve data
         HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem", "poem.php", "fetch");
         HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove", "ilove.php", "fetch");
@@ -76,9 +78,13 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     // validate response from servers
     private boolean validateResponse(String response) {
-        if (response != null && response.length() != 0) {
-            dataRetrieved = true;
-            return true;
+        if (response != null) {
+            if (!response.equals("false")) {
+                if (response.length() != 0 && response.length() > 12) {
+                    dataRetrieved = true;
+                    return true;
+                }
+            }
         }
         return false;
     }
