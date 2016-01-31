@@ -21,7 +21,7 @@ public class HttpRequestManager {
         mRequestType = "GET";
         mBuilder.scheme(Http.SCHEME)
                 .authority(Http.DOMAIN)
-                .appendPath("versatile")
+                .appendPath("web")
                 .appendPath("projectz")
                 .appendPath("cms")
                 .appendPath("Backend")
