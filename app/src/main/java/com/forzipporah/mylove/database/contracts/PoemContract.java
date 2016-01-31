@@ -24,7 +24,7 @@ public class PoemContract implements BaseColumns {
 
     public static final String CREATE_POEM_TABLE = "CREATE TABLE " + TABLE_NAME + "(" +
             _ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            COL_SERVER_ROW_ID + " TEXT NOT NULL, " +
+            COL_SERVER_ROW_ID + " INTEGER NOT NULL, " +
             COL_POEM_NAME + " TEXT NOT NULL, " +
             COL_POEM + " TEXT NOT NULL, " +
             COL_FAVOURITE + " TEXT NOT NULL, " +

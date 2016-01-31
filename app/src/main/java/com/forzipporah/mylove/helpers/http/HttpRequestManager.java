@@ -37,6 +37,8 @@ public class HttpRequestManager {
         HttpURLConnection connection = (HttpURLConnection) syncUrl.openConnection();
         connection.setRequestMethod(mRequestType);
         connection.setInstanceFollowRedirects(true);
+        connection.setDefaultUseCaches(false);
+        connection.setUseCaches(false);
         HttpURLConnection.setFollowRedirects(true);
         connection.connect();
 

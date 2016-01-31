@@ -18,7 +18,7 @@ public class ILoveContract implements BaseColumns {
 
     public static final String CREATE_LOVE_ABOUT_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             _ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            SERVER_ROW_ID + " TEXT NOT NULL, " +
+            SERVER_ROW_ID + " INTEGER NOT NULL, " +
             COL_ILOVE + " TEXT NOT NULL " +
             ")";
 

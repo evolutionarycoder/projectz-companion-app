@@ -46,7 +46,7 @@ public class DatabaseProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         Database Database = new Database(getContext());
-        database = Database.getReadableDatabase();
+        database = Database.getWritableDatabase();
         return true;
     }
 
@@ -224,42 +224,39 @@ public class DatabaseProvider extends ContentProvider {
     @Override
     public int bulkInsert(Uri uri, ContentValues[] values) {
         int            numInserted = 0;
-        SQLiteDatabase sqlDB;
         int            uriType     = sURI_MATCHER.match(uri);
         switch (uriType) {
             case POEMS:
-                sqlDB = new Database(getContext()).getWritableDatabase();
-                sqlDB.beginTransaction();
+                database.beginTransaction();
                 try {
                     for (ContentValues cv : values) {
-                        long newID = sqlDB.insertOrThrow(PoemContract.TABLE_NAME, null, cv);
+                        long newID = database.insertOrThrow(PoemContract.TABLE_NAME, null, cv);
                         if (newID <= 0) {
                             throw new SQLException("Failed to insert row into " + uri);
                         }
                     }
-                    sqlDB.setTransactionSuccessful();
+                    database.setTransactionSuccessful();
                     getContext().getContentResolver().notifyChange(uri, null);
                     numInserted = values.length;
                 } finally {
-                    sqlDB.endTransaction();
+                    database.endTransaction();
                 }
                 break;
 
             case LOVEABOUTS:
-                sqlDB = new Database(getContext()).getWritableDatabase();
-                sqlDB.beginTransaction();
+                database.beginTransaction();
                 try {
                     for (ContentValues cv : values) {
-                        long newID = sqlDB.insertOrThrow(ILoveContract.TABLE_NAME, null, cv);
+                        long newID = database.insertOrThrow(ILoveContract.TABLE_NAME, null, cv);
                         if (newID <= 0) {
                             throw new SQLException("Failed to insert row into " + uri);
                         }
                     }
-                    sqlDB.setTransactionSuccessful();
+                    database.setTransactionSuccessful();
                     getContext().getContentResolver().notifyChange(uri, null);
                     numInserted = values.length;
                 } finally {
-                    sqlDB.endTransaction();
+                    database.endTransaction();
                 }
                 break;
             default:

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.database.contracts.ILoveContract;
@@ -77,15 +78,29 @@ public class SettingUpActivity extends Activity {
                 e.printStackTrace();
             }
 
-            if (poemResponse != null && poemResponse.length() != 0) {
-                ContentValues[] values = Poem.createContentValuesArrayFromJSON(poemResponse);
-                getBaseContext().getContentResolver().bulkInsert(PoemContract.buildUri(), values);
+            if (poemResponse != null) {
+                if (!poemResponse.equals("false")) {
+                    if (poemResponse.length() != 0 && poemResponse.length() > 12) {
+                        Log.i("JSONP", "Poem response length " + poemResponse.length());
+                        ContentValues[] values = Poem.createContentValuesArrayFromJSON(poemResponse);
+                        getBaseContext().getContentResolver().bulkInsert(PoemContract.buildUri(), values);
+                    }
+                }
             }
 
-            if (iloveResponse != null && iloveResponse.length() != 0) {
-                ContentValues[] values = ILove.createContentValuesArrayFromJSON(iloveResponse);
-                getBaseContext().getContentResolver().bulkInsert(ILoveContract.buildUri(), values);
+            if (iloveResponse != null) {
+                if (!iloveResponse.equals("false")) {
+                    if (iloveResponse.length() != 0 && iloveResponse.length() > 12) {
+                        Log.i("JSONP", "I love response length " + iloveResponse.length());
+                        ContentValues[] values = ILove.createContentValuesArrayFromJSON(iloveResponse);
+                        getBaseContext().getContentResolver().bulkInsert(ILoveContract.buildUri(), values);
+                    }
+                }
             }
+
+            Log.i("JSONP", poemResponse);
+            Log.i("JSONP", iloveResponse);
+
             return null;
         }
 
