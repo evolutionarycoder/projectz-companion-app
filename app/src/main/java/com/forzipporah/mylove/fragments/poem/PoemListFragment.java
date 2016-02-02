@@ -21,9 +21,6 @@ import com.forzipporah.mylove.database.contracts.PoemContract;
  */
 public class PoemListFragment extends PoemFragment implements LoaderManager.LoaderCallbacks<Cursor>, AbsListView.OnScrollListener {
     private static final int FETCH_ALL_POEMS_LOADER = 0;
-    private static       int LIMIT                  = 10;
-    private static       int INCREMENT_BY           = 10;
-    private int preLast;
 
 
     public PoemListFragment() {

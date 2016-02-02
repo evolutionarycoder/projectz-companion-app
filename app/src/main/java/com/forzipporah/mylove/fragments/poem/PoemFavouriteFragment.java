@@ -23,9 +23,6 @@ import com.forzipporah.mylove.models.Poem;
 public class PoemFavouriteFragment extends PoemFragment implements LoaderManager.LoaderCallbacks<Cursor>, AbsListView.OnScrollListener {
 
     private static final int FETCH_FAVOURITE_POEMS_LOADER = 0;
-    private static       int LIMIT                        = 10;
-    private static       int INCREMENT_BY                 = 10;
-    private int preLast;
 
     public PoemFavouriteFragment() {
         // Required empty public constructor

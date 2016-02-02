@@ -18,6 +18,9 @@ public class PoemFragment extends ListFragment {
     public static final String POEM_EXTRA = "com.forzipporah.mylove.fragments.poem.Poem";
     protected CursorAdapter     mCursorAdapter;
     protected RefetchTotalPoems mainActivity;
+    protected int LIMIT        = 10;
+    protected int INCREMENT_BY = 10;
+    protected int preLast;
 
     @Override
     public void onAttach(Context context) {
