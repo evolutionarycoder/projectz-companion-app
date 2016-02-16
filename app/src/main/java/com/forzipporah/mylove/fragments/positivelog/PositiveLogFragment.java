@@ -29,8 +29,8 @@ import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.database.DatabaseAsyncOperation;
 import com.forzipporah.mylove.database.contracts.PositiveLogContract;
 import com.forzipporah.mylove.models.PositiveLog;
-import com.forzipporah.mylove.ui.PositiveLogActivity;
-import com.forzipporah.mylove.ui.PositiveLogUpsertActivity;
+import com.forzipporah.mylove.ui.positivelog.PositiveLogActivity;
+import com.forzipporah.mylove.ui.positivelog.PositiveLogUpsertActivity;
 
 
 public class PositiveLogFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, DatabaseAsyncOperation.OperationComplete {

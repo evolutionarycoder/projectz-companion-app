@@ -1,4 +1,4 @@
-package com.forzipporah.mylove.ui;
+package com.forzipporah.mylove.ui.positivelog;
 
 import android.content.Intent;
 import android.os.Bundle;

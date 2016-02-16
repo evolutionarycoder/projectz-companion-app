@@ -17,7 +17,7 @@ import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.database.DatabaseAsyncOperation;
 import com.forzipporah.mylove.database.contracts.PositiveLogContract;
 import com.forzipporah.mylove.models.PositiveLog;
-import com.forzipporah.mylove.ui.PositiveLogActivity;
+import com.forzipporah.mylove.ui.positivelog.PositiveLogActivity;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,4 +1,4 @@
-package com.forzipporah.mylove.ui;
+package com.forzipporah.mylove.ui.viewlist;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

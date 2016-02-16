@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/base_pink"
     android:orientation="vertical"
-    tools:context="com.forzipporah.mylove.ui.PositiveLogActivity">
+    tools:context=".ui.positivelog.PositiveLogActivity">
 
 
     <TextView

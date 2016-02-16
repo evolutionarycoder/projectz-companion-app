@@ -25,6 +25,8 @@ import com.forzipporah.mylove.database.Database;
 import com.forzipporah.mylove.database.contracts.PoemContract;
 import com.forzipporah.mylove.fragments.LoadListDataFragment;
 import com.forzipporah.mylove.fragments.poem.PoemFragment;
+import com.forzipporah.mylove.ui.positivelog.PositiveLogActivity;
+import com.forzipporah.mylove.ui.viewlist.ViewListActivity;
 
 public class MainActivity extends AppCompatActivity implements PoemFragment.RefetchTotalPoems {
 
