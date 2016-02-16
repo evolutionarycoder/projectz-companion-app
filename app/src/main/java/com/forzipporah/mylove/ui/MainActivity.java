@@ -23,16 +23,17 @@ import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.adapters.PoemViewPagerAdapter;
 import com.forzipporah.mylove.database.Database;
 import com.forzipporah.mylove.database.contracts.PoemContract;
+import com.forzipporah.mylove.fragments.LoadListDataFragment;
 import com.forzipporah.mylove.fragments.poem.PoemFragment;
 
 public class MainActivity extends AppCompatActivity implements PoemFragment.RefetchTotalPoems {
 
+    public static final String DATABASE_TABLE = "com.forzipporah.mylove.ui.DATABASE_TABLE";
     // for navigation drawer
     private ListView              mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout          mDrawerLayout;
     private String                mActivityTitle;
-
     // layout items
     private TextView tvPoemCount;
 
@@ -79,13 +80,25 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = null;
                 switch (position) {
-                    case 0:
+                    case 0: // i love
                         i = new Intent(MainActivity.this, ILoveActivity.class);
                         break;
-                    case 1:
+                    case 1: // memory
+                        i = new Intent(MainActivity.this, ViewListActivity.class);
+                        i.putExtra(DATABASE_TABLE, LoadListDataFragment.DATABASE_TABLES.MEMORY);
+                        break;
+                    case 2: // promise
+                        i = new Intent(MainActivity.this, ViewListActivity.class);
+                        i.putExtra(DATABASE_TABLE, LoadListDataFragment.DATABASE_TABLES.PROMISE);
+                        break;
+                    case 3: // reassurance
+                        i = new Intent(MainActivity.this, ViewListActivity.class);
+                        i.putExtra(DATABASE_TABLE, LoadListDataFragment.DATABASE_TABLES.REASSURE);
+                        break;
+                    case 4: // positive log
                         i = new Intent(MainActivity.this, PositiveLogActivity.class);
                         break;
-                    case 2:
+                    case 5: // relationship status
                         i = new Intent(MainActivity.this, StatusActivity.class);
                         break;
                 }
@@ -162,6 +175,9 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
     private void addDrawerItems() {
         String[] menuItems = {
                 "I Love",
+                "A Memory",
+                "I Promise",
+                "Reassurance",
                 "Positive Log",
                 "Relationship Status"
         };

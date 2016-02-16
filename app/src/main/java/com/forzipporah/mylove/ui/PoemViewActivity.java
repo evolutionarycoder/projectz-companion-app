@@ -28,7 +28,7 @@ public class PoemViewActivity extends AppCompatActivity implements DatabaseAsync
         Intent intent = getIntent();
         if (intent.hasExtra(PoemFragment.POEM_EXTRA)) {
             poemObj = intent.getParcelableExtra(PoemFragment.POEM_EXTRA);
-            TextView name = (TextView) findViewById(R.id.tvPoemName);
+            TextView name = (TextView) findViewById(R.id.text);
             TextView author = (TextView) findViewById(R.id.tvAuthor);
             TextView date = (TextView) findViewById(R.id.tvDate);
             TextView poem = (TextView) findViewById(R.id.tvPoem);

@@ -39,7 +39,7 @@ public class ILove {
 
     public ContentValues createContentValues() {
         ContentValues values = new ContentValues();
-        values.put(ILoveContract.SERVER_ROW_ID, this.getServerId());
+        values.put(ILoveContract.COL_SERVER_ROW_ID, this.getServerId());
         values.put(ILoveContract.COL_ILOVE, this.getIlove());
         return values;
     }

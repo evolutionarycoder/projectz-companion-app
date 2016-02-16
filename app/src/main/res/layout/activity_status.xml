@@ -24,7 +24,6 @@
             android:id="@+id/togetherForTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light_purple_bg"
             android:gravity="center_vertical|center_horizontal"
             android:minHeight="40dp"
             android:textAllCaps="true"
@@ -49,7 +48,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light_purple_bg"
             android:gravity="center_vertical|center_horizontal"
             android:minHeight="40dp"
             android:text="YES!"
@@ -73,7 +71,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light_purple_bg"
             android:gravity="center_vertical|center_horizontal"
             android:minHeight="40dp"
             android:text="Until a minute after never reaches"

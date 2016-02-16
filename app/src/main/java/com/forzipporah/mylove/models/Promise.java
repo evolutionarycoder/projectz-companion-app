@@ -42,7 +42,7 @@ public class Promise {
 
     public ContentValues createContentValues() {
         ContentValues values = new ContentValues();
-        values.put(PromiseContract.SERVER_ROW_ID, this.getServerId());
+        values.put(PromiseContract.COL_SERVER_ROW_ID, this.getServerId());
         values.put(PromiseContract.COL_PROMISE, this.getPromise());
         return values;
     }

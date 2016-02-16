@@ -150,7 +150,7 @@ public class DatabaseProvider extends ContentProvider {
                         selectionArgs,
                         null,
                         null,
-                        null);
+                        sortOrder);
                 break;
             case PROMISE_ID:
                 c = database.query(PromiseContract.TABLE_NAME,
@@ -169,7 +169,7 @@ public class DatabaseProvider extends ContentProvider {
                         selectionArgs,
                         null,
                         null,
-                        null);
+                        sortOrder);
                 break;
             case MEMORY_ID:
                 c = database.query(MemoryContract.TABLE_NAME,
@@ -188,7 +188,7 @@ public class DatabaseProvider extends ContentProvider {
                         selectionArgs,
                         null,
                         null,
-                        null);
+                        sortOrder);
                 break;
             case REASSURE_ID:
                 c = database.query(ReassureContract.TABLE_NAME,

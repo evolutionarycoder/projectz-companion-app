@@ -64,7 +64,7 @@ public class ILoveActivityFragment extends Fragment implements LoaderManager.Loa
                 null,
                 null,
                 null,
-                ILoveContract.SERVER_ROW_ID + " DESC LIMIT " + LIMIT
+                ILoveContract.COL_SERVER_ROW_ID + " DESC LIMIT " + LIMIT
         );
     }
 

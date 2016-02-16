@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,7 @@ import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.forzipporah.mylove.R;
+import com.forzipporah.mylove.adapters.ListCursorAdapter;
 import com.forzipporah.mylove.database.contracts.MemoryContract;
 import com.forzipporah.mylove.database.contracts.PromiseContract;
 import com.forzipporah.mylove.database.contracts.ReassureContract;
@@ -29,10 +29,10 @@ public class LoadListDataFragment extends Fragment implements LoaderManager.Load
 
     private static int LIMIT        = 10;
     private static int INCREMENT_BY = 10;
-    private int                 preLast;
-    private DATABASE_TABLES     type;
-    private SimpleCursorAdapter mAdapter;
-    private ListView            listView;
+    private int               preLast;
+    private DATABASE_TABLES   type;
+    private ListCursorAdapter mAdapter;
+    private ListView          listView;
 
     public LoadListDataFragment() {
         // Required empty public constructor
@@ -82,34 +82,27 @@ public class LoadListDataFragment extends Fragment implements LoaderManager.Load
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listView = (ListView) view.findViewById(R.id.listView);
-        int[] to = {
-                R.id.tvPoemName
-        };
-        String[] from;
+
+        String column;
         switch (type) {
             case MEMORY:
-                from = new String[]{
-                        MemoryContract.COL_MEMORY
-                };
+                column = MemoryContract.COL_MEMORY;
+
                 break;
             case PROMISE:
-                from = new String[]{
-                        PromiseContract.COL_PROMISE
-                };
+                column = PromiseContract.COL_PROMISE;
+
                 break;
             case REASSURE:
-                from = new String[]{
-                        ReassureContract.COL_REASSURE
-                };
+                column = ReassureContract.COL_REASSURE;
+
                 break;
             default:
-                from = new String[]{
-                        MemoryContract.COL_MEMORY
-                };
+                column = MemoryContract.COL_MEMORY;
                 break;
         }
 
-        mAdapter = new SimpleCursorAdapter(getContext(), R.layout.poem_item, null, from, to, 0);
+        mAdapter = new ListCursorAdapter(getContext(), null, 0, column);
         listView.setAdapter(mAdapter);
         listView.setOnScrollListener(this);
     }

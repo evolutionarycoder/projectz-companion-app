@@ -10,32 +10,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.forzipporah.mylove.R;
-import com.forzipporah.mylove.database.contracts.PoemContract;
 
 
-public class PoemCursorAdapter extends CursorAdapter {
-    public PoemCursorAdapter(Context context, Cursor c, int flags) {
+public class ListCursorAdapter extends CursorAdapter {
+    private String column;
+
+    public ListCursorAdapter(Context context, Cursor c, int flags, String column) {
         super(context, c, flags);
+        this.column = column;
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         // inflate poem item
-        View       view   = LayoutInflater.from(context).inflate(R.layout.poem_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
         ViewHolder holder = new ViewHolder();
         holder.leftImage = (ImageView) view.findViewById(R.id.ivLeft);
         holder.rightImage = (ImageView) view.findViewById(R.id.ivRight);
-        holder.poemName = (TextView) view.findViewById(R.id.tvPoemName);
+        holder.text = (TextView) view.findViewById(R.id.text);
         view.setTag(holder);
         return view;
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        String poemName = cursor.getString(cursor.getColumnIndex(PoemContract.COL_POEM_NAME));
+        String text = cursor.getString(cursor.getColumnIndex(this.column));
 
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.poemName.setText(poemName);
+        holder.text.setText(text);
 
         // change image icon appropriately
         if ((cursor.getPosition() % 2) == 0) {
@@ -49,7 +51,7 @@ public class PoemCursorAdapter extends CursorAdapter {
 
     private static class ViewHolder {
         ImageView leftImage, rightImage;
-        TextView poemName;
+        TextView text;
     }
 
 }

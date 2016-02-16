@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 
 import com.forzipporah.mylove.R;
-import com.forzipporah.mylove.adapters.PoemCursorAdapter;
+import com.forzipporah.mylove.adapters.ListCursorAdapter;
 import com.forzipporah.mylove.database.contracts.PoemContract;
 import com.forzipporah.mylove.models.Poem;
 
@@ -41,7 +41,7 @@ public class PoemFavouriteFragment extends PoemFragment implements LoaderManager
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mCursorAdapter = new PoemCursorAdapter(getContext(), null, 0);
+        mCursorAdapter = new ListCursorAdapter(getContext(), null, 0, PoemContract.COL_POEM_NAME);
         setListAdapter(mCursorAdapter);
         getListView().setOnScrollListener(this);
     }

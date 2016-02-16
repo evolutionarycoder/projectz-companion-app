@@ -13,12 +13,12 @@ public class PromiseContract implements BaseColumns {
     public static final String BASE_PATH  = "promise";
 
 
-    public static final String SERVER_ROW_ID = "server_id";
-    public static final String COL_PROMISE   = "promise";
+    public static final String COL_SERVER_ROW_ID = "server_id";
+    public static final String COL_PROMISE       = "promise";
 
     public static final String CREATE_PROMISE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             _ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            SERVER_ROW_ID + " INTEGER NOT NULL, " +
+            COL_SERVER_ROW_ID + " INTEGER NOT NULL, " +
             COL_PROMISE + " TEXT NOT NULL " +
             ")";
 
@@ -26,7 +26,7 @@ public class PromiseContract implements BaseColumns {
 
     public static final String[] ALL_COLUMNS = {
             _ID,
-            SERVER_ROW_ID,
+            COL_SERVER_ROW_ID,
             COL_PROMISE
     };
 

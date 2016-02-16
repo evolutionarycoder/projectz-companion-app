@@ -40,7 +40,7 @@ public class Memory {
 
     public ContentValues createContentValues() {
         ContentValues values = new ContentValues();
-        values.put(MemoryContract.SERVER_ROW_ID, this.getServerId());
+        values.put(MemoryContract.COL_SERVER_ROW_ID, this.getServerId());
         values.put(MemoryContract.COL_MEMORY, this.getMemory());
         return values;
     }

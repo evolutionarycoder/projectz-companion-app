@@ -11,12 +11,12 @@ public class ReassureContract implements BaseColumns {
     public static final String BASE_PATH  = "reassurance";
 
 
-    public static final String SERVER_ROW_ID = "server_id";
-    public static final String COL_REASSURE  = "reassure";
+    public static final String COL_SERVER_ROW_ID = "server_id";
+    public static final String COL_REASSURE      = "reassure";
 
     public static final String CREATE_REASSURANCE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             _ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            SERVER_ROW_ID + " INTEGER NOT NULL, " +
+            COL_SERVER_ROW_ID + " INTEGER NOT NULL, " +
             COL_REASSURE + " TEXT NOT NULL " +
             ")";
 
@@ -24,7 +24,7 @@ public class ReassureContract implements BaseColumns {
 
     public static final String[] ALL_COLUMNS = {
             _ID,
-            SERVER_ROW_ID,
+            COL_SERVER_ROW_ID,
             COL_REASSURE
     };
 

@@ -10,12 +10,12 @@ public class MemoryContract implements BaseColumns {
     public static final String BASE_PATH  = "memory";
 
 
-    public static final String SERVER_ROW_ID = "server_id";
-    public static final String COL_MEMORY    = "memory";
+    public static final String COL_SERVER_ROW_ID = "server_id";
+    public static final String COL_MEMORY        = "memory";
 
     public static final String CREATE_MEMORY_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             _ID + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " +
-            SERVER_ROW_ID + " INTEGER NOT NULL, " +
+            COL_SERVER_ROW_ID + " INTEGER NOT NULL, " +
             COL_MEMORY + " TEXT NOT NULL " +
             ")";
 
@@ -23,7 +23,7 @@ public class MemoryContract implements BaseColumns {
 
     public static final String[] ALL_COLUMNS = {
             _ID,
-            SERVER_ROW_ID,
+            COL_SERVER_ROW_ID,
             COL_MEMORY
     };
 

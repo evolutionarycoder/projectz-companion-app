@@ -40,7 +40,7 @@ public class Reassure {
 
     public ContentValues createContentValues() {
         ContentValues values = new ContentValues();
-        values.put(ReassureContract.SERVER_ROW_ID, this.getServerId());
+        values.put(ReassureContract.COL_SERVER_ROW_ID, this.getServerId());
         values.put(ReassureContract.COL_REASSURE, this.getReassure());
         return values;
     }
