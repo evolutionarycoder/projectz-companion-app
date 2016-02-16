@@ -1,6 +1,7 @@
 package com.forzipporah.mylove.fragments;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.forzipporah.mylove.R;
 import com.forzipporah.mylove.adapters.ListCursorAdapter;
@@ -20,19 +23,25 @@ import com.forzipporah.mylove.database.contracts.MemoryContract;
 import com.forzipporah.mylove.database.contracts.PromiseContract;
 import com.forzipporah.mylove.database.contracts.ReassureContract;
 import com.forzipporah.mylove.ui.MainActivity;
+import com.forzipporah.mylove.ui.viewlist.ViewListItemActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoadListDataFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, AbsListView.OnScrollListener {
+public class LoadListDataFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>, AbsListView.OnScrollListener, AdapterView.OnItemClickListener {
+    public static final String TITLE = "com.forzipporah.mylove.fragments.TITLE";
+    public static final String TEXT  = "com.forzipporah.mylove.fragments.TEXT";
+
     private static int LOADER_ID = 0;
 
     private static int LIMIT        = 10;
     private static int INCREMENT_BY = 10;
     private int               preLast;
-    private DATABASE_TABLES   type;
+    private DATABASE_TABLES type = null;
     private ListCursorAdapter mAdapter;
     private ListView          listView;
+
+    private String title;
 
     public LoadListDataFragment() {
         // Required empty public constructor
@@ -58,21 +67,26 @@ public class LoadListDataFragment extends Fragment implements LoaderManager.Load
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        type = (DATABASE_TABLES) getActivity().getIntent().getSerializableExtra(MainActivity.DATABASE_TABLE);
-        switch (type) {
-            case MEMORY:
-                getActivity().setTitle("Memory");
-                break;
-            case PROMISE:
-
-                getActivity().setTitle("Promise");
-                break;
-            case REASSURE:
-                getActivity().setTitle("Reassurance");
-                break;
-            default:
-                getActivity().setTitle("Memory");
-                break;
+        if (type == null) {
+            type = (DATABASE_TABLES) getActivity().getIntent().getSerializableExtra(MainActivity.DATABASE_TABLE);
+            switch (type) {
+                case MEMORY:
+                    title = "Memory";
+                    getActivity().setTitle(title);
+                    break;
+                case PROMISE:
+                    title = "Promise";
+                    getActivity().setTitle(title);
+                    break;
+                case REASSURE:
+                    title = "Reassurance";
+                    getActivity().setTitle(title);
+                    break;
+                default:
+                    title = "Memory";
+                    getActivity().setTitle(title);
+                    break;
+            }
         }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_load_list_data, container, false);
@@ -105,6 +119,7 @@ public class LoadListDataFragment extends Fragment implements LoaderManager.Load
         mAdapter = new ListCursorAdapter(getContext(), null, 0, column);
         listView.setAdapter(mAdapter);
         listView.setOnScrollListener(this);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
@@ -151,6 +166,16 @@ public class LoadListDataFragment extends Fragment implements LoaderManager.Load
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mAdapter.swapCursor(null);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        TextView tv   = (TextView) view.findViewById(R.id.text);
+        String   text = tv.getText().toString();
+        Intent   i    = new Intent(getContext(), ViewListItemActivity.class);
+        i.putExtra(TITLE, title);
+        i.putExtra(TEXT, text);
+        startActivity(i);
     }
 
     public enum DATABASE_TABLES {
