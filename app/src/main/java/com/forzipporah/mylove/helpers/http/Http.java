@@ -10,22 +10,16 @@ import android.net.NetworkInfo;
  */
 public class Http {
 
-    // http://192.168.0.5/versatile/projectz/cms/Backend/api/poem
-    public static final String HOST_DOMAIN = "http://192.168.0.5/";
-
-    // http://192.168.0.5/ - local
-    // http://myprincess.esy.es/ - production
     public static final  String SCHEME = "http";
     private static final String ENV    = "local";
-    // 192.168.1.5 - local
-    // myprincess.esy.es - production
-    public static        String DOMAIN = "192.168.0.5";
+
+    public static String DOMAIN;
 
     static {
         if (ENV.equals("local")) {
-            DOMAIN = "192.168.0.5";
+            DOMAIN = "192.168.1.142"; // local
         } else {
-            DOMAIN = "myprincess.esy.es";
+            DOMAIN = "myprincess.esy.es"; // production
         }
     }
 
