@@ -16,7 +16,7 @@ public class HttpRequestManager {
     private Uri.Builder mBuilder;
     private String      mRequestType;
 
-    public HttpRequestManager(String folder, String file, String queryParam) {
+    public HttpRequestManager(String file, String queryParam) {
         mBuilder = new Uri.Builder();
         mRequestType = "GET";
         mBuilder.scheme(Http.SCHEME)
@@ -26,7 +26,7 @@ public class HttpRequestManager {
                 .appendPath("cms")
                 .appendPath("Backend")
                 .appendPath("api")
-                .appendPath(folder)
+                .appendPath("retrieve")
                 .appendPath(file)
                 .appendQueryParameter(queryParam, "");
     }

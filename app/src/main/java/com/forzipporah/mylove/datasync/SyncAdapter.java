@@ -42,8 +42,8 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         dataRetrieved = false;
 
         // define request objects with there destination to retrieve data
-        HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem", "poem.php", "fetch");
-        HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove", "ilove.php", "fetch");
+        HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem.php", "fetch");
+        HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove.php", "fetch");
 
 
         // define strings to hold received data

@@ -67,8 +67,8 @@ public class SettingUpActivity extends Activity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem", "poem.php", "fetch");
-            HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove", "ilove.php", "fetch");
+            HttpRequestManager httpRequestPoems      = new HttpRequestManager("poem.php", "fetch");
+            HttpRequestManager httpRequestLoveAbouts = new HttpRequestManager("ilove.php", "fetch");
             String             poemResponse          = null;
             String             iloveResponse         = null;
             try {
