@@ -144,6 +144,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.forzipporah.mylove.ui.viewlist.ViewListActivity"/>
         </activity>
+        <activity
+            android:name=".ui.NotificationActivity"
+            android:label="@string/title_activity_notification"
+            android:parentActivityName=".ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.forzipporah.mylove.ui.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

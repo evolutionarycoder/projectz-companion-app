@@ -8,8 +8,10 @@
     <string name="title_activity_positive_log_upsert">View</string>
     <string name="title_activity_setting_up">Setting Up</string>
     <string name="title_activity_status">Status</string>
+    <string name="title_activity_view_list_item">View</string>
+    <string name="title_activity_notification">Notifications</string>
 
-    <!--  Main Activity -->
+    <!--  Quotes -->
     <string name="quote">And in her smile I see something more beautiful than the stars.</string>
     <string name="quote2">We\'ve got this gift of love, but love is like a precious plant. You can\'t just accept it and leave it in the cupboard or just think it\'s going to get on by itself. You\'ve got to keep watering it. You\'ve got to really look after it and nurture it.</string>
 
@@ -41,9 +43,6 @@
     <string name="dummy_long_text">I love you</string>
     <string name="title_activity_view_list">ViewListActivity</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_view_list_item">ViewListItemActivity</string>
 
 
 </resources>

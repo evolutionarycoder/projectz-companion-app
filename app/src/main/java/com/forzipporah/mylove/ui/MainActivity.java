@@ -103,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
                     case 5: // relationship status
                         i = new Intent(MainActivity.this, StatusActivity.class);
                         break;
+                    case 6: // notifications
+                        i = new Intent(MainActivity.this, NotificationActivity.class);
+                        break;
                 }
                 if (i != null) {
                     startActivity(i);
@@ -181,7 +184,8 @@ public class MainActivity extends AppCompatActivity implements PoemFragment.Refe
                 "I Promise",
                 "Reassurance",
                 "Positive Log",
-                "Relationship Status"
+                "Relationship Status",
+                "Notifications"
         };
          /*
             "A Memory",

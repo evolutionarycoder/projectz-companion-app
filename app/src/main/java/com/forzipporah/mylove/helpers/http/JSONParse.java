@@ -2,6 +2,7 @@ package com.forzipporah.mylove.helpers.http;
 
 import com.forzipporah.mylove.models.ILove;
 import com.forzipporah.mylove.models.Memory;
+import com.forzipporah.mylove.models.Notification;
 import com.forzipporah.mylove.models.Poem;
 import com.forzipporah.mylove.models.Promise;
 import com.forzipporah.mylove.models.Reassure;
@@ -114,6 +115,27 @@ public class JSONParse {
             e.printStackTrace();
         }
         return memories;
+    }
+
+    public static ArrayList<Notification> parseJSONToNotifications(String jsonString) {
+        ArrayList<Notification> notifications = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(jsonString);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject json = jsonArray.getJSONObject(i);
+                String serverId = json.getString("id");
+                String text = json.getString("text");
+                String synced = json.getString("synced");
+
+                Notification notification = new Notification(serverId, text, synced);
+                notifications.add(notification);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return notifications;
     }
 
 }
